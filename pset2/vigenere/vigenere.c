@@ -14,30 +14,42 @@ int main (int argc, string argv[])
     }
     
     /* Get the sentence from user */
-    //printf("enter a phrase to encrypt: \n");
     string sentence;
     sentence = GetString();
+  
+/*  Create an array and populate it with the keyword's characters */    
     
-   // int argv[1] = atoi(argv[1]);
+    string keyword = argv[1];
+    int j = strlen(keyword);
+    int k[j];
     
-    // sketch
-    for (int j=0, k=0; j < strlen(sentence); j++, k++)
+    for (int i = 0; i < j; i++)
     {
-        //printf("%c", sentence[j] );
+        if (keyword[i] >= 'a' && keyword[i] <= 'z')  // if the character is lower case
+        {
+            keyword[i] = keyword[i] - 32;
+        }
         
-        if ((sentence[j] >= 'A') && (sentence[j] <= 'Z'))   // if the j-th letter of user input is upper case
-        {
-            sentence[j] = ((sentence[j] - 'A') + argv[1][k % strlen(argv[1])]) % 26 + 'A';
-        } 
-        if ((sentence[j] >= 'a') && (sentence[j] <='z'))    // if the j-th letter of user input is lower case
-        {
-            sentence[j] = ((sentence[j] - 'a') + argv[1][k % strlen(argv[1])]) % 26 + 'a';
-        }    
-        printf("%c", sentence[j] );    
+        k[i] = keyword[i] -65;  // get each character into the array
+        
+        // printf("Element %i of k = %c\n", i, k[i]);
+    }
+/* **************************************************************** */   
+   
+    
+    // encipher
+    for (int j=0, n = strlen(sentence); j < n; j++)
+    {
+        if((sentence[j] >= 'A') && (sentence[j] <= 'Z'))
+            // cipher formula
+            sentence[j] = (((sentence[j] - 'A') + k[j % strlen(keyword)]) % 26) + 'A';;
+            
+        if((sentence[j] >= 'a') && (sentence[j] <='z'))
+            sentence[j] = (((sentence[j] - 'a') + k[j % strlen(keyword)]) % 26) + 'a';
+            
+        printf("%c", sentence[j]);    
     }
     printf("\n");
-    
-   // printf("%c\n", sentence[1]);
     
 
 }
