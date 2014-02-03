@@ -20,7 +20,6 @@ int main(int argc, string argv[])  // Get the key
     // declare more variables -      
     string sentence;                      // a string
     //int j;                              // char for i-th character of the string
-    // TODO: declare a bool
     
     // get the plaintext
     printf("enter a phrase to encrypt: ");
