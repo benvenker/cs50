@@ -6,52 +6,38 @@
 
 int main (int argc, string argv[])
 {
-    /* input validation code here */
-    if (argc !=2)
+    /*   Get the input strings   */
+    if ( (argc != 2) )
     {
-        printf("Usage: ./caesar-x key\n");
+        printf("Usage: ./vigenere <keyword>\n");
         return 1;
     }
     
-    /* Get the text from user */
-    printf("enter a phrase to encrypt: \n");
+    /*  Create an array and populate it with the keyword's characters */    
+   // string keyword = argv[1];
+   // int j = strlen(keyword);
+    int k = atoi(argv[1]);
+
+    /* Get the sentence from user */
     string sentence;
-    sentence = GetString(); 
+    sentence = GetString();
     
-    /* Apply the cipher */
-    int key, letter, result, enciphered;
-  
-    for (int i = 0, n = strlen(sentence); i < n; i ++) {  // for every character in the string
-        key = atoi(argv[1]);
-        letter = sentence[i];
-        result = (letter + key) % 26 - key;
-        enciphered = letter + key;
-        
-        // detect specialcharacters
-        if ((' ' <= letter <= '/') || (':' <= letter <= '@') || ('{' <= letter <= '~'))
+    // encipher
+    for (int j=0, n = strlen(sentence); j < n; j++)
+    {
+        if (isalpha(sentence[j]))
         {
-            enciphered = letter;
-        } 
-        if (isupper(letter))                               // if it's an upper case letter
-        {
-            enciphered = 'A' + result;
-            if (enciphered < 'A')                               // if char value falls below 'A'
-            {   
-                enciphered = 'Z' - ('@' - enciphered);              // cycle loop back to 'Z'
+            if((sentence[j] >= 'A') && (sentence[j] <= 'Z'))
+            {
+                sentence[j] = (((sentence[j] - 'A') + k) % 26) + 'A';
             }
-        }        
-        else if (islower(letter))                          // if it's a lower case letter
-        {
-            result = result-6;                                  // account for bigger modulo result (ugly)
-            enciphered = 'a' + result;
-            if (enciphered < 'a')                               // if char value falls below 'a'
-            {   
-                enciphered = 'z' - ('`' - enciphered);              // cycle loop back to 'z'
-            }   
+            if((sentence[j] >= 'a') && (sentence[j] <='z'))
+            {
+                sentence[j] = (((sentence[j] - 'a') + k) % 26) + 'a';
+                //printf("sentence[%i] = (((sentence[%i] - 'a') + k[%i mod %i = %i]) mod 26) + 'a';\n",j,j,count, strlen(keyword), count % strlen(keyword));
+            }
         }
-        printf("%c", enciphered);
-        
+        printf("%c", sentence[j]);    
     }
     printf("\n");
-
 }
