@@ -19,7 +19,8 @@ int main (int argc, string argv[])
     sentence = GetString();
     
    // int argv[1] = atoi(argv[1]);
-    
+    char keyword = argv[1];
+    char K[
     // sketch
     for (int j=0, k=0; j < strlen(sentence); j++, k++)
     {

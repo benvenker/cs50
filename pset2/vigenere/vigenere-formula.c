@@ -31,16 +31,13 @@ int main (int argc, string argv[])
     {
         if (keyword[i] >= 'a' && keyword[i] <= 'z')  // if the character is lower case
         {
-            keyword[i] = keyword[i] - 32;             // convert to upper case   
+            keyword[i] = keyword[i] - 32;
         }
         
-        k[i] = keyword[i] - 65;
-        // also tried: k[i] = keyword[i] - 'A';
+        k[i] = keyword[i];  // get each character into the array
         
-        printf("Element %i of k = %i\n", i, k[i]);
+        
+        printf("Element %i of k = %c\n", i, k[i]);
     }
-    printf("%i - %i = %i\n", k[0], 65, k[0] - 65);
-    printf("K[] = %i, %i, %i, %i, %i\n", k[0], k[1], k[2], k[3], k[4]);
-    
     
 }
