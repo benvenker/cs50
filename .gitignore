@@ -1,0 +1,36 @@
+# Excess draft files
+*-*.exe
+*.exe
+*-*.c
+vgcore.*
+*.pdf
+core.*
+*-*
+/pset6/texts*
+/pset6/keys*
+/src5m*
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Libraries
+*.lib
+*.a
+/pset4/spl*
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex

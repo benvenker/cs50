@@ -46,7 +46,7 @@ void draw(void);
 bool move(int tile);
 bool won(void);
 void save(void);
-/*bool swap(int x, int y);*/
+void swap(int* x, int* y);
 
 
 int main(int argc, string argv[])
@@ -221,9 +221,10 @@ bool move(int tile)
                     {
                         if (newRow == 1 || newRow == -1)
                         {
-                            int temp = i;
-                            i = blankTileRow;
-                            blankTileRow = temp;
+                            swap(&i, &blankTileRow);
+/*                            int temp = i;*/
+/*                            i = blankTileRow;*/
+/*                            blankTileRow = temp;*/
                         }
                     }
                     
@@ -232,9 +233,10 @@ bool move(int tile)
                     {
                         if (newCol == 1 || newCol == -1)
                         {    
-                            int temp = j;
-                            j = blankTileColumn;
-                            blankTileColumn = temp;
+                            swap(&j, &blankTileColumn);
+/*                            int temp = j;*/
+/*                            j = blankTileColumn;*/
+/*                            blankTileColumn = temp;*/
                         }
                     }
                     
@@ -247,8 +249,7 @@ bool move(int tile)
         }
     }  
     return false;
-}           
-      
+}                 
 
 /**
  * Returns true if game is won (i.e., board is in winning configuration), 
@@ -256,21 +257,30 @@ bool move(int tile)
  */
 bool won(void)
 {
-    int  leftNum = board[i][j], rightNum = board[i+1][j+1];
+   // int  leftNum = board[i][j], rightNum = board[i][j+1];
     
-    // TODO
+    int number = 0;
+    
     for (int i = 0; i <= d-1; i++)
             {
                 for (int j = 0; j <= d-1; j++)
-                {
-                    if (leftNum > rightNum)
-                    {  
-                        return 0;
-                    }         
+                {               
+                    if ((i+j) == (d*2 - 2) && (number != 95))
+                    {
+                        return true;
+                    }
+                        
+                    if (number > board[i][j])               
+                    {
+                        return false;
+                    }
+                    number = board[i][j];                                                         
                 }
+               
             }
+             return true; 
            
-    return false;
+/*    return false;*/
 }
 
 /**
@@ -325,11 +335,9 @@ void save(void)
 /** Swaps the values of a pair of ints.*/
 /**/
 
-/*bool swap(int x, int y)*/
-/*{*/
-/*    int temp = x;*/
-/*    x = y;*/
-/*    y = temp;*/
-/*    */
-/*    return x;*/
-/*}*/
+void swap(int* a, int* b )
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}

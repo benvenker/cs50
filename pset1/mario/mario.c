@@ -4,31 +4,34 @@
 int main(void)
 {
     printf("Pick a positive number less than 24: ");
-    int n, numSpace, numHash;
+   
+    int height, numSpace, numHash;
     
-    do
-    {
-        n = GetInt();    
+    height = GetInt();
+    
+    if (height == 0) { return 0; }
+    
+    while (height > 23 || height < 1) {
+        printf("You didn't pick a valid number, please pick again: ");
+        height = GetInt();       
     }
-    while (n > 23 || n < 1);
-    {
-        printf("You didn't pick a valid number, please pick again.\n");
+    
+    // intialize the counter
+    for (int i = 1; i <= height; i++)
+    {             
+        // print spaces while numSpace is less than height
+        // check height = 5, expect space = "    " (four spaces) in first line
+        for (numSpace = i; numSpace < height; numSpace++)
+            printf(" ");
+            
+        // set numHash = height - 1 and print hashes while numHash <= height
+        // check height = 5, expect "##" in first line
+        for (numHash = height - i; numHash <= height; numHash++)
+            printf("#");
+            
+        // print new line
+        printf("\n");
     }
-        
-
-        for (int i = 1; i <= n; i++)
-        {             
-            // print spaces
-            for (numSpace = n-i; numSpace < n; numSpace++)
-                printf(" ");
-                
-            // print hashes
-            for (numHash = i; numHash <= n; numHash++)
-                printf("#");
-                
-            // print new line
-            printf("\n");
-        }
-        
-        return 0;
-    }
+    
+    return 0;
+}

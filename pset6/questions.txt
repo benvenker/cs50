@@ -1,0 +1,47 @@
+0.  an artificial long word said to mean a lung disease caused by inhaling very fine ash and sand dust.
+
+1.  returns resource usage for: the calling process; all children of the calling process that have 
+    terminated and been waited for; the calling thread in the form of struct rusage.
+   
+2.  16
+
+3.  To guarantee we have the memory allocated from the heap.
+
+4.  The for loop uses fgetc() to obtain the first character of a word from the file pointer, check if it's
+    the EOF character and if it's not, assign that character's value to int c.
+    
+    Next, the first if statement checks to make sure it's an alpha character or an apostrophe, and the
+    if statement will allow it as long as the index is > 0.  If the character passes the if test, it is
+    appended to word[index] and index is incremented so it knows to check the next character.
+    
+    Then the next if statement checks for words that are too long. Specifically, if word[index] (which 
+    represents the current length of the current word) is greater than LENGTH (the pre-defined limit on 
+    word length), then it enters a while loop that evaluates each character sets the index to 0, until EOF
+    is reached.
+    
+    If the first character wasn't alpha or an apostrophe, then the program instead exited the first if statement 
+    and hit the first else if statement, which makes sure the current character isn't a number.  If it is a
+    number, we replicate the same while loop from above, cycling through each character, but ensuring the index
+    is always set to 0 so that when the EOF is found, we can move on to try and find a new word.
+    
+    If instead we found a character and or an apostorophe when we first checked, index > 0, and so we must add
+    a '\0' to the current word to end it and update the word counter.  Next we check the word's spelling.  First
+    we log the current time from &before, then check if the word we created is in the dictionary, then log the current
+    time after the lookup.
+    
+    Then we take &before and &after values to calculate the benchmark speed of the lookup.  If the check() bool
+    returned false, meaning the word was not in the dictionary, we print out the misspelled word, update the
+    misspellings counter, and set index = 0 to ready ourselves for a new word.
+    
+    
+5.  We would still have to do the same operations on the string if we read it in whole anyway.  It's more efficien
+    to just read one character at a time, since we have to do it regardless.  Using fgets() allows us to limit the
+    number of characters read in, without having to worry about overflowing a buffer, and allows us to safely read
+    through a file that we may  not trust to be formatted cleanly.
+    
+6.  To create pointers to chars that are constant, which prevents the data in the const from being changed
+
+7.  TODO
+8.  TODO
+9.  TODO
+10. TODO

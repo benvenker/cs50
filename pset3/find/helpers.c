@@ -16,43 +16,37 @@
  */
 bool search(int value, int values[], int n)
 {
+    
+    
     int count = 0; // declare a counting variable
+    int middle = count/2;
+    
     //  implement a searching algorithm
     if (n >= 0)
     {
         for (int i = 0; values[i] != '\0'; i++)  // find the length of the array
         {
-            count ++;
-            // printf("count[%i] = %i\n", values[i], count);
+            count ++;  
         }
+        printf("count = %i\n", count);
+        printf("middle = %i\n", count/2);   
+        printf("\n");
         
 /*      while length of list > 0*/
-        while (count > 0) 
-        {           
-/*          look at middle of list*/
-            int middle = count / 2;
-   
-/*          if number found, return true*/
-            if (middle == value) { return true; }
-            
-/*          else if number higher, search left*/
-            else if (middle > value)
+        while (count >= 0) 
+        {                
+            for (int i = 0; i <= values[middle]; i++)
             {
-                for (int i = 0; i < middle; i++)
-                {
-                    if (values[i] == value) { return true; }    // check if it's the needle*/
-                }
+                if (values[i] == value) { return true; }
             }
-/*          else if number lower, search right*/
-            else if (middle < value)
+
+            for (int i = 0; i > values[middle] && values[i] != '\0'; i++)
             {
-                for (int i = 0; i > middle; i++)
-                {
-                    if (values[i] == value) { return true; }    // check if it's the needle*/
-                }
-            }
+                if (values[i] == value) { return true; }
+            } 
+                    
+            count--;    
         }
-/*       return false*/       
     }
     return false;   
 }
@@ -75,7 +69,7 @@ void sort(int values[], int n)
             values[i + 1] = values[i];
         }
         
-        printf("if %i > %i, values[] = {%i}", values[i], values[i+1], values[i]);
+       //  printf("if %i > %i, values[] = {%i}", values[i], values[i+1], values[i]);
     }
     return;
     

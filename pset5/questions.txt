@@ -1,0 +1,57 @@
+0.  Supported Colors by Format:
+        BMP:    supports up to 4,294,967,296 colors in 32bpp format
+        GIF:    supports 256 colors
+        JPEG:   supports ~16.7 million colors
+        PNG:    supports 24-bit RGB (16.7 million colors) or 32-bit RGBA colors (over 1 billion colors)
+        
+1.  GIF supports animation
+
+2.  Lossy Compression: compresses data by discarding some of it.
+    Lossles Compression: compresses the data in such a way that the uncompressed data can be
+                         perfectly reconstructed from the compressed data.
+                         
+3.  Lossy-compressed formats:
+        JPEG
+        
+4.  When a file is deleted on a FAT file system, the system modifies the filename's first character
+    in the file's directory entry to signal that the file has been deleted and the directory entry
+    can be recycled; then, the system moves all the file's FAT clusters to the hard drive's list of
+    free clusters.
+    
+5.  Download a free tool that sanitizes the disk using an appropriate method, such as Guttman's
+    erase patterns.  An example of such a tool (for Linux) is Wipe: http://wipe.sourceforge.net
+    
+6.  stdint.h is a header file that uses macros to provide a set of typedefs that 
+    specify exact-width integer types, along with defined min and max allowable values
+    for each type.
+    
+7.  You would use those types to verify that a particular integer is the exact bit-width
+    specified in the type: i.e., uint32_t == an unsigned integer that is exactly 32 bits.
+    
+8.  BYTE:   1 byte
+    DWORD:  4 bytes
+    LONG:   4 bytes
+    WORD:   2 bytes
+
+9.  Magic number of BMP: 42 4D
+
+10. bfSize is the size, in bytes of the bitmap file
+    biSize is the number of bytes required by a structure, i.e., the BITMAPINFOHEADER.
+    
+11. If biHeight is negative, biCompression must be either BI_RGB or BI_BITFIELDS.
+    It also indicates that the DIB is top-down, and top-down DIBs cannot be compressed.
+    
+12. biBitCount specifies the bits-per-pixel.
+
+13. if, for some reason, outputr fails to be created.
+
+14. Because we only want fread to read 1 file.
+
+15. padding = 1
+    
+16. fseek() sets the file position data for the given stream, i.e., lets you tell C
+    where in the file it should start looking.
+    
+17. SEEK_CUR seeks from the current location
+
+18. Milo Banana dun it
