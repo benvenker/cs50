@@ -3,30 +3,32 @@
     // configuration
     require("../includes/functions.php");
     
-   
-    // display form
-    render("../templates/quote_form.php", ["title" => "quote"]);
         
     // get stock symbol
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         if ( empty($_POST["symbol"]) )
         {
-            apologize("You must provide a symbol");
-            
+            apologize("You must provide a symbol");          
         }
-    }
-    
-    $s = lookup($_POST["symbol"]);
-    
-    if ($s === false)
-    {
-        apologize("Invalid symbol, please try again."); 
+        
+        $s = lookup($_POST["symbol"]);
+        //$english_format_s = number_format($s, 2, '.', '');
+        if ($s === false)
+        {
+            apologize("Invalid symbol, please try again."); 
+        }
+        else
+        {
+            // display stock quote
+            render("quote.php", ["price" => $s["price"] ]);
+            // print("Price: " . number_format($s["price"], 2, '.', '')); // need to format to 2 to 4 decimal places using number_format
+        }
     }
     else
     {
-        // display stock quote
-        print("Price: " . $s["price"]); // need to format to 2 to 4 decimal places using number_format
+        // display form
+        render("quote_form.php", ["title" => "quote"]);
     }
     
 ?>
