@@ -6,14 +6,16 @@
     </head>
     <body style="text-align: center;">
         <h1>Be Better</h1>
-        <form action="event-2.php" method="post">
-            Event: <input name="Event" type="text"/>
+        <form action="event-2b.php" method="post">
+            Event (subject): <input name="Event" type="text"/>
             <br/>
-            Description:<input name="Description" type="text"/>
+            Description (email body):<input name="Description" type="text"/>
             <br/>
             Frequency<input name="Frequency" type="text"/>
             <br/>
-            Date<input nanme="Frequency" type="text"/>
+            Date<input name="Frequency" type="text"/>
+            <br/>
+            Email to:<input name="Email" type="text"/>
             <input type="submit" value="Be Better"/>
         </form>
     </body>

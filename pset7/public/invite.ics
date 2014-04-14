@@ -1,13 +1,11 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:http://www.icalmaker.com
 BEGIN:VEVENT
-UID:http://www.icalmaker.com/event/e0c15eab-039d-4a76-b56c-637d56ed8794
-DTSTAMP:20140329T045232Z
-DTSTART:20140331T000000Z
-DTEND:20140331T000000Z
-SUMMARY:todo
-LOCATION:dinner
-DESCRIPTION:test description
+DTSTAMP:20140412T003459Z
+DTSTART:20140411T193000Z
+DTEND:20140411T235500Z
+SUMMARY:betterboyfriend test invite
+LOCATION:Toph's house
+DESCRIPTION:Not perfect, but you have no idea how painful the iCalendar protocol is to deal with.  If you got this far you at least click the invite in your email.
 END:VEVENT
 END:VCALENDAR

@@ -26,11 +26,5 @@
     $cash = query("SELECT cash FROM users WHERE id = ?", $_SESSION["id"]);
     
     // render positions
-    render("portfolio.php", ["positions" => $positions, "title" => "Portfolio"],
-                            ["cash" => $cash]);
-          // ("portfolio.php", ["cash" => 10000.00, "title" => "Portfolio"]) );
-
-    // render current cash holdings
-    // render("portfolio.php", ["cash" => 10000.00, "title" => "Portfolio"]);
- 
+    render("portfolio.php", ["positions" => $positions, "cash" => $cash[0], "title" => "Portfolio"]);
 ?>

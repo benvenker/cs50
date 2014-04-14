@@ -13,7 +13,7 @@
         }
         
         $s = lookup($_POST["symbol"]);
-        //$english_format_s = number_format($s, 2, '.', '');
+        
         if ($s === false)
         {
             apologize("Invalid symbol, please try again."); 
